@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.graduatedesign.R
 import com.example.graduatedesign.models.Project
-import okhttp3.internal.http2.Http2Connection
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ProjectViewHolder>() {
-
 
     inner class ProjectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -28,7 +26,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ProjectViewHolder>() {
         }
     }
 
-    private val differ = AsyncListDiffer(this, differCallback)
+    val differ = AsyncListDiffer(this, differCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectViewHolder {
         return ProjectViewHolder(
