@@ -2,6 +2,7 @@ package com.example.graduatedesign.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(
 
@@ -43,4 +44,4 @@ data class Project(
     val userId: Int,
     val visible: Int,
     val zan: Int
-)
+) : Serializable

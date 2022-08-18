@@ -19,7 +19,11 @@
     <fragment
         android:id="@+id/article_fragment"
         android:name="com.example.graduatedesign.ui.fragments.ArticleFragment"
-        android:label="ArticleFragment" />
+        android:label="ArticleFragment" >
+        <argument
+            android:name="projectLink"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/saved_news_fragement"
         android:name="com.example.graduatedesign.ui.fragments.SavedNewsFragment"
