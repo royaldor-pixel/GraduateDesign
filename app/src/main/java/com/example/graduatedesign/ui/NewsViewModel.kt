@@ -1,5 +1,6 @@
 package com.example.graduatedesign.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +14,10 @@ class NewsViewModel(
     val projectRepository: ProjectRepository
 ) : ViewModel() {
 
-    val projectList: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    private val _projectList: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    val projectList: LiveData<Resource<NewsResponse>> = _projectList
+
+
     var projectListPage = 1
     var projectCid = 294
 
@@ -22,9 +26,9 @@ class NewsViewModel(
     }
 
     fun getProjectList(page: Int, cid: Int) = viewModelScope.launch {
-        projectList.postValue(Resource.Loading())
+        _projectList.postValue(Resource.Loading())
         val response = projectRepository.getProjectList(page, cid)
-        projectList.postValue(handleProjectListResponse(response))
+        _projectList.postValue(handleProjectListResponse(response))
     }
 
     private fun handleProjectListResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
