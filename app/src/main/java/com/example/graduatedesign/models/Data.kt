@@ -1,4 +1,4 @@
-package com.example.graduatedesign
+package com.example.graduatedesign.models
 
 data class Data(
     val curPage: Int,

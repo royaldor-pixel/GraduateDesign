@@ -1,6 +1,6 @@
 package com.example.graduatedesign.api
 
-import com.example.graduatedesign.NewsResponse
+import com.example.graduatedesign.models.NewsResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.Field
 import retrofit2.http.GET

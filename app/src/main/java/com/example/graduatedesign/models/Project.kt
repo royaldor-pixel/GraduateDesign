@@ -1,4 +1,4 @@
-package com.example.graduatedesign
+package com.example.graduatedesign.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

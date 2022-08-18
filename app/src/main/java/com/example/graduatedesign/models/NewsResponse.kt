@@ -1,4 +1,4 @@
-package com.example.graduatedesign
+package com.example.graduatedesign.models
 
 data class NewsResponse(
     val `data`: Data,

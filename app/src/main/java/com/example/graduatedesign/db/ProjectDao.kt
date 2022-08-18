@@ -2,7 +2,7 @@ package com.example.graduatedesign.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.graduatedesign.Project
+import com.example.graduatedesign.models.Project
 
 @Dao
 interface ProjectDao {
