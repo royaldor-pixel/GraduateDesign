@@ -22,7 +22,7 @@
         android:label="ArticleFragment" />
     <fragment
         android:id="@+id/saved_news_fragement"
-        android:name="com.example.graduatedesign.ui.fragments.SavedNewsFragement"
+        android:name="com.example.graduatedesign.ui.fragments.SavedNewsFragment"
         android:label="SavedNewsFragement">
         <action
             android:id="@+id/action_savedNewsFragement_to_articleFragment"

@@ -1,4 +1,4 @@
-package com.example.graduatedesign.ui.fragments;
+package com.example.graduatedesign.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import com.example.graduatedesign.R
 import com.example.graduatedesign.ui.NewsActivity
 import com.example.graduatedesign.ui.NewsViewModel
 
-class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
+class SavedNewsFragment:Fragment(R.layout.fragment_saved_news) {
 
     lateinit var viewModel: NewsViewModel
 
@@ -15,5 +15,4 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
     }
-
 }
