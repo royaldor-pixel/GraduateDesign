@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,17 +19,17 @@ class BreakingNewsFragment : BaseFragment(R.layout.fragment_breaking_news) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (activity as NewsActivity).viewModel
         setupRecyclerView()
 
-        newsAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                putString("project",it.projectLink)
+        newsAdapter.setOnItemClickListener { project ->
+            project.link.let {
+                findNavController().navigate(
+                    BreakingNewsFragmentDirections.actionBreakingNewsFragmentToArticleFragment(
+                        it
+                    )
+                )
+
             }
-            findNavController().navigate(
-                R.id.action_breakingNewsFragment_to_articleFragment,
-                bundle
-            )
         }
 
         viewModel.projectList.observe(viewLifecycleOwner) { response ->

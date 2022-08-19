@@ -49,7 +49,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ProjectViewHolder>() {
             findViewById<TextView>(R.id.tvSource).text = project.author
             findViewById<TextView>(R.id.tvDescription).text = project.desc
             findViewById<TextView>(R.id.tvPublishedAt).text = project.niceDate
-            setOnItemClickListener {
+            setOnClickListener {
                 onItemClickListener?.let { it(project) }
             }
         }

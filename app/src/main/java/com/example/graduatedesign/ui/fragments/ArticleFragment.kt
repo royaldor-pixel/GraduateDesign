@@ -13,16 +13,17 @@ import com.example.graduatedesign.ui.NewsActivity
 
 class ArticleFragment : BaseFragment(R.layout.fragment_article) {
 
-    private val args : ArticleFragmentArgs by navArgs()
+    val args : ArticleFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
-
-        Log.d(TAG, args.toString())
+        val projectLink = args.projectLink
 
         view.findViewById<WebView>(R.id.webView).apply {
             webViewClient = WebViewClient()
+            loadUrl(projectLink)
+
         }
     }
 }

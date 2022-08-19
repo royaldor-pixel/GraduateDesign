@@ -11,6 +11,7 @@ import com.example.graduatedesign.models.Project
     version = 1
 )
 abstract class ProjectDatabase : RoomDatabase() {
+
     abstract fun getProjectDao(): ProjectDao
 
     companion object {
