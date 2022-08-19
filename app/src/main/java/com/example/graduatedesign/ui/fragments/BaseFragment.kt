@@ -12,7 +12,6 @@ abstract class BaseFragment() : Fragment() {
     val TAG: String by lazy { javaClass.name }
 
     lateinit var viewModel: NewsViewModel
-    lateinit var newsAdapter: NewsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -18,10 +18,7 @@ class NewsViewModel(
     val projectList: LiveData<Resource<NewsData>> = _projectList
 
     private val _searchList: MutableLiveData<Resource<NewsData>> = MutableLiveData()
-    val searchList: LiveData<Resource<NewsData>> = _projectList
-
-    var searchPage = 0
-    var searchKey = ""
+    val searchList: LiveData<Resource<NewsData>> = _searchList
 
     var projectListPage = 1
     var projectCid = 294
@@ -37,9 +34,9 @@ class NewsViewModel(
         _projectList.postValue(handleProjectListResponse(response))
     }
 
-    fun searchArticle(page: Int, key: String) = viewModelScope.launch {
+    fun searchArticle(key: String) = viewModelScope.launch {
         _searchList.postValue(Resource.Loading())
-        val response = projectRepository.searchArticles(page, key)
+        val response = projectRepository.searchArticles(key)
         _searchList.postValue(handleSearchResponse(response))
     }
 

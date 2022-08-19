@@ -16,6 +16,8 @@ import com.example.graduatedesign.util.Resource
 
 class BreakingNewsFragment : BaseFragment() {
 
+    lateinit var newsAdapter: NewsAdapter
+
     private var _binding: FragmentBreakingNewsBinding? = null
 
     private val binding get() = _binding!!

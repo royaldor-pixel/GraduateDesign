@@ -17,9 +17,8 @@ interface NewsAPI {
     ): Response<NewsData>
 
 
-    @GET("article/query/{page}/json")
+    @GET("article/query/1/json")
     suspend fun getSearchListAsync(
-        @Path("page") page: Int = 0,
-        @Field("k") k: String = ""
+        @Query("k") k: String
     ): Response<NewsData>
 }

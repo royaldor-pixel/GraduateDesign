@@ -9,6 +9,6 @@ class ProjectRepository(
     suspend fun getProjectList(page: Int, cid: Int) =
         RetrofitInstance.api.getProjectListAsync(page, cid)
 
-    suspend fun searchArticles(page: Int, key: String) =
-        RetrofitInstance.api.getSearchListAsync(page, key)
+    suspend fun searchArticles(key: String) =
+        RetrofitInstance.api.getSearchListAsync(key)
 }

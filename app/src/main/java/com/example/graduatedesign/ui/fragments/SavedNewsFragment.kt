@@ -14,6 +14,8 @@ import com.example.graduatedesign.ui.NewsViewModel
 
 class SavedNewsFragment:BaseFragment() {
 
+    lateinit var newsAdapter: NewsAdapter
+
     private var _binding: FragmentSavedNewsBinding? = null
     private val binding get() = _binding!!
 
