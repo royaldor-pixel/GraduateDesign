@@ -6,12 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.graduatedesign.R
 import com.example.graduatedesign.adapters.NewsAdapter
 import com.example.graduatedesign.databinding.FragmentSearchNewsBinding
 import com.example.graduatedesign.util.Resource
 import kotlinx.coroutines.Job
+
 
 class SearchNewsFragment : BaseFragment() {
 
@@ -68,7 +67,7 @@ class SearchNewsFragment : BaseFragment() {
 
     private fun setupRecyclerView() {
         newsAdapter = NewsAdapter()
-        requireView().findViewById<RecyclerView>(R.id.rvBreakingNews).apply {
+        binding.rvSearchNews.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
