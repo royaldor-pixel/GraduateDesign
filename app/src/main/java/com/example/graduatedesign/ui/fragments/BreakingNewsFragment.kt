@@ -20,6 +20,7 @@ class BreakingNewsFragment : BaseFragment(R.layout.fragment_breaking_news) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+        showProgressBar()
 
         newsAdapter.setOnItemClickListener { project ->
             project.link.let {
@@ -54,16 +55,16 @@ class BreakingNewsFragment : BaseFragment(R.layout.fragment_breaking_news) {
     }
 
     private fun hideProgressBar() {
-        view?.findViewById<ProgressBar>(R.id.paginationProgressBar)?.visibility = View.INVISIBLE
+        requireView().findViewById<ProgressBar>(R.id.paginationProgressBar)?.visibility = View.INVISIBLE
     }
 
     private fun showProgressBar() {
-        view?.findViewById<ProgressBar>(R.id.paginationProgressBar)?.visibility = View.VISIBLE
+        requireView().findViewById<ProgressBar>(R.id.paginationProgressBar)?.visibility = View.VISIBLE
     }
 
     private fun setupRecyclerView() {
         newsAdapter = NewsAdapter()
-        view?.findViewById<RecyclerView>(R.id.rvBreakingNews)?.apply {
+        requireView().findViewById<RecyclerView>(R.id.rvBreakingNews).apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
