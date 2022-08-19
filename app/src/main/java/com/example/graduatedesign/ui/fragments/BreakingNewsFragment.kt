@@ -23,12 +23,11 @@ class BreakingNewsFragment : BaseFragment(R.layout.fragment_breaking_news) {
 
         newsAdapter.setOnItemClickListener { project ->
             project.link.let {
-                findNavController().navigate(
-                    BreakingNewsFragmentDirections.actionBreakingNewsFragmentToArticleFragment(
-                        it
+                findNavController()
+                    .navigate(
+                    BreakingNewsFragmentDirections
+                        .actionBreakingNewsFragmentToArticleFragment(it)
                     )
-                )
-
             }
         }
 
