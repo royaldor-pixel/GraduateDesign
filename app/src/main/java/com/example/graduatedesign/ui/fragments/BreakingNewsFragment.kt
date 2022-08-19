@@ -2,20 +2,33 @@ package com.example.graduatedesign.ui.fragments;
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.graduatedesign.R
 import com.example.graduatedesign.adapters.NewsAdapter
-import com.example.graduatedesign.ui.NewsActivity
+import com.example.graduatedesign.databinding.FragmentBreakingNewsBinding
 import com.example.graduatedesign.util.Resource
 
-class BreakingNewsFragment : BaseFragment(R.layout.fragment_breaking_news) {
+class BreakingNewsFragment : BaseFragment() {
 
-    lateinit var newsAdapter: NewsAdapter
+    private var _binding: FragmentBreakingNewsBinding? = null
+
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+        _binding = FragmentBreakingNewsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,8 +39,8 @@ class BreakingNewsFragment : BaseFragment(R.layout.fragment_breaking_news) {
             project.link.let {
                 findNavController()
                     .navigate(
-                    BreakingNewsFragmentDirections
-                        .actionBreakingNewsFragmentToArticleFragment(it)
+                        BreakingNewsFragmentDirections
+                            .actionBreakingNewsFragmentToArticleFragment(it)
                     )
             }
         }
@@ -55,11 +68,11 @@ class BreakingNewsFragment : BaseFragment(R.layout.fragment_breaking_news) {
     }
 
     private fun hideProgressBar() {
-        requireView().findViewById<ProgressBar>(R.id.paginationProgressBar)?.visibility = View.INVISIBLE
+        binding.paginationProgressBarBN.visibility = View.INVISIBLE
     }
 
     private fun showProgressBar() {
-        requireView().findViewById<ProgressBar>(R.id.paginationProgressBar)?.visibility = View.VISIBLE
+        binding.paginationProgressBarBN.visibility = View.INVISIBLE
     }
 
     private fun setupRecyclerView() {

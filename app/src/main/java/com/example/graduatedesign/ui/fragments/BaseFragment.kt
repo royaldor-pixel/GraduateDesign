@@ -7,10 +7,12 @@ import com.example.graduatedesign.adapters.NewsAdapter
 import com.example.graduatedesign.ui.NewsActivity
 import com.example.graduatedesign.ui.NewsViewModel
 
-abstract class BaseFragment(fragmentBreakingNews: Int) : Fragment(fragmentBreakingNews) {
+abstract class BaseFragment() : Fragment() {
 
-    val TAG: String = javaClass.name
+    val TAG: String by lazy { javaClass.name }
+
     lateinit var viewModel: NewsViewModel
+    lateinit var newsAdapter: NewsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
