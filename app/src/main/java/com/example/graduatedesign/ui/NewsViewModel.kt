@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class NewsViewModel(
-    val projectRepository: ProjectRepository
+    private val projectRepository: ProjectRepository
 ) : ViewModel() {
 
     private val _projectList: MutableLiveData<Resource<NewsData>> = MutableLiveData()
@@ -28,7 +28,7 @@ class NewsViewModel(
         getProjectList(projectListPage, projectCid)
     }
 
-    fun getProjectList(page: Int, cid: Int) = viewModelScope.launch {
+    private fun getProjectList(page: Int, cid: Int) = viewModelScope.launch {
         _projectList.postValue(Resource.Loading())
         val response = projectRepository.getProjectList(page, cid)
         _projectList.postValue(handleProjectListResponse(response))

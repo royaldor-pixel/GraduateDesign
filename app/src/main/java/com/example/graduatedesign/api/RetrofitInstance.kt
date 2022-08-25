@@ -1,5 +1,7 @@
 package com.example.graduatedesign.api
 
+import android.widget.EditText
+import androidx.core.widget.doAfterTextChanged
 import com.example.graduatedesign.util.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,6 +26,8 @@ class RetrofitInstance {
                 .client(client)
                 .build()
 
+
+
         }
 
         val api: NewsAPI by lazy {
@@ -31,3 +35,7 @@ class RetrofitInstance {
         }
     }
 }
+//    fun function1() {
+//        val et : EditText
+//        et.doAfterTextChanged {  }
+//    }
