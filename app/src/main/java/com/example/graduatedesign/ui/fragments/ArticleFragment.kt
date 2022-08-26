@@ -43,4 +43,9 @@ class ArticleFragment : BaseFragment() {
 
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
 }

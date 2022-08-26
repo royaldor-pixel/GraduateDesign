@@ -34,4 +34,9 @@ class SavedNewsFragment:BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 //        viewModel = (activity as NewsActivity).viewModel
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
